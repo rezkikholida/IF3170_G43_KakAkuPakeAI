@@ -1,18 +1,42 @@
+import copy
 import random
 import time
 import matplotlib.pyplot as plt
 
+from objects import initialize, pushAbove
+
+# Inisialisasi data paket dan truk
+base_packages, my_truck = initialize()
 
 def fitness_function(chromosome):
-    return sum(chromosome)
+    total_value = 0
+    for pkg in chromosome:
+        if pkg.Orientation.inside:
+            total_value += pkg.Value
+    return total_value
 
 ukuran_populasi = 15 # ukuran populasi adalah N
 jumlah_generasi = 20 # jumlah generasi adalah T, banyak iterasi yang dilakukan oleh GA
 probabilitas_mutasi = 0.1
 jumlah_kromosom = 10
 
+def fix_positions(chromosome): # biar ga aneh output paketnya
+  for pkg in chromosome:
+    pushAbove(chromosome, pkg)
+    pkg.retrace(chromosome)
+  return chromosome
+
 def generate_initial_population():
-    return [[random.randint(0,1) for i in range(jumlah_kromosom)] for j in range(ukuran_populasi)]
+    population = []
+    for _ in range(ukuran_populasi):
+        individual = copy.deepcopy(base_packages)
+
+        for pkg in individual:
+            pkg.rotate(random.choice(["x", "y", "z"]), individual)
+            pkg.relocate([random.randint(0,10), random.randint(0,20), random.randint(0,5)], individual)
+            individual = fix_positions(individual)
+        population.append(individual)
+    return population
 
 def select_parents(population, fitness_scores):
     total_fitness = sum(fitness_scores)
@@ -25,17 +49,32 @@ def select_parents(population, fitness_scores):
     return random.choices(population, weights=selection_probs, k=2)
 
 def crossover(parent1, parent2):
-    crossover_point = random.randint(1, jumlah_kromosom - 1)
-    child1 = parent1[:crossover_point] + parent2[crossover_point:]
-    child2 = parent2[:crossover_point] + parent1[crossover_point:]
-    return child1, child2
+    child1 = copy.deepcopy(parent1)
+    child2 = copy.deepcopy(parent2)
+
+    if len(parent1) > 1:
+        crossover_point = random.randint(1, len(parent1) - 1)
+        for i in range(crossover_point, len(parent1)):
+            child1[i].Orientation = copy.deepcopy(parent2[i].Orientation)
+            child2[i].Orientation = copy.deepcopy(parent1[i].Orientation)
+            child1[i].retrace(child1)
+            child2[i].retrace(child2)
+    return fix_positions(child1), fix_positions(child2)
+
 
 def mutate(chromosome):
-    mutated = chromosome.copy()
-    for i in range(len(chromosome)):
+    mutated = copy.deepcopy(chromosome)
+    for pkg in mutated: 
         if random.random() < probabilitas_mutasi:
-            mutated[i] = 1 - mutated[i]
-    return mutated
+            aksi = random.choice(["rotate", "trade", "relocate"])
+            if aksi == "rotate":
+                pkg.rotate(random.choice(["x", "y", "z"]), mutated)
+            elif aksi == "trade" and len(mutated) > 1:
+                target = random.choice([p for p in mutated if p!= pkg])
+                pkg.trade(target, mutated)
+            elif aksi == "relocate":
+                pkg.relocate([random.randint(0, 10), random.randint(0, 20), random.randint(0,5),], mutated,)
+    return fix_positions(mutated)
 
 def genetic_algorithm():
     population = generate_initial_population()
@@ -71,7 +110,7 @@ print("Execution time:", y - x, "seconds")
 final_scores = [fitness_function(chromosome) for chromosome in population]
 
 initial_best = fitness_data[2]
-population, fitness_data = genetic_algorithm()
+
 best_score = max(final_scores)
 best_index = final_scores.index(best_score)
 best_chromosome = population[best_index]
@@ -81,8 +120,8 @@ avg_final_score = sum(final_scores) / len(final_scores)
 print(f"Ukuran Populasi (Jumlah Populasi)    : {ukuran_populasi}")
 print(f"Jumlah Generasi (Banyak Iterasi)     : {jumlah_generasi}")
 print(f"Durasi Eksekusi      : {y - x:.4f} detik")
-print(f"Solusi Awal (State Awal) :{initial_best}")
-print(f"Solusi Terbaik Akhir (State Akhir) : {best_chromosome}")
+print(f"Solusi Awal (State Awal) :{[p.id for p in initial_best]}")
+print(f"Solusi Terbaik Akhir (State Akhir) : {[p.id for p in best_chromosome]}")
 print(f"Fitness Terbaik (Nilai Objective Function Akhir)     : {best_score} / {jumlah_kromosom}")
 print(f"Fitness Rata-Rata (Nilai Objective Function Rata-Rata)    : {avg_final_score:.2f}")
 
