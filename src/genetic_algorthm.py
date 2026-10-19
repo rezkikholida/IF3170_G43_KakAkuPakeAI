@@ -15,8 +15,8 @@ def fitness_function(chromosome):
             total_value += pkg.Value
     return total_value
 
-ukuran_populasi = 15 # ukuran populasi adalah N
-jumlah_generasi = 20 # jumlah generasi adalah T, banyak iterasi yang dilakukan oleh GA
+ukuran_populasi = 60 # ukuran populasi adalah N (Jumlah populasi)
+jumlah_generasi = 30 # jumlah generasi adalah T, banyak iterasi yang dilakukan oleh GA (banyak iterasi)
 probabilitas_mutasi = 0.1
 jumlah_kromosom = 10
 
@@ -34,7 +34,7 @@ def generate_initial_population():
         for pkg in individual:
             pkg.rotate(random.choice(["x", "y", "z"]), individual)
             pkg.relocate([random.randint(0,10), random.randint(0,20), random.randint(0,5)], individual)
-            individual = fix_positions(individual)
+        individual = fix_positions(individual)
         population.append(individual)
     return population
 
@@ -92,7 +92,7 @@ def genetic_algorithm():
 
         new_population = []
         for _ in range(ukuran_populasi // 2):
-            parent1, parent2 = select_parents(population, fitness_scores = [fitness_function(chromosome) for chromosome in population])
+            parent1, parent2 = select_parents(population, fitness_scores)
             child1, child2 = crossover(parent1, parent2)      
             child1 = mutate(child1)
             child2 = mutate(child2)
@@ -117,13 +117,17 @@ best_chromosome = population[best_index]
 avg_final_score = sum(final_scores) / len(final_scores)
 
 
-print(f"Ukuran Populasi (Jumlah Populasi)    : {ukuran_populasi}")
-print(f"Jumlah Generasi (Banyak Iterasi)     : {jumlah_generasi}")
+print(f"Jumlah Populasi    : {ukuran_populasi}")
+print(f"Banyak Iterasi   : {jumlah_generasi}")
 print(f"Durasi Eksekusi      : {y - x:.4f} detik")
-print(f"Solusi Awal (State Awal) :{[p.id for p in initial_best]}")
-print(f"Solusi Terbaik Akhir (State Akhir) : {[p.id for p in best_chromosome]}")
-print(f"Fitness Terbaik (Nilai Objective Function Akhir)     : {best_score} / {jumlah_kromosom}")
-print(f"Fitness Rata-Rata (Nilai Objective Function Rata-Rata)    : {avg_final_score:.2f}")
+
+state_awal = [p.id for p in initial_best if p.Orientation.inside]
+state_akhir = [p.id for p in best_chromosome if p.Orientation.inside]
+
+print(f"State Awal : {state_awal}")
+print(f"State Akhir : {state_akhir}")
+print(f"Nilai Objective Function Akhir    : {best_score} / {jumlah_kromosom}")
+print(f"Nilai Objective Function Rata-Rata    : {avg_final_score:.2f}")
 
 
 plt.figure(figsize=(8, 4.5))
