@@ -1,0 +1,728 @@
+HC: 
+No
+Hasil
+1
+State Awal=
+Jumlah Populasi (Paket): 4
+State Value Awal: 138
+Detail State Awal: [
+Package (ID = DqatPackage, (w = 7, l = 4, h = 4), (X: w, Y: l, Z: h, Coordinates = [3, 0, 0], Inside Truck: True),
+Value = 4, Weight = 88, IsFragile = False, ETA (day) = 4)
+, 
+Package (ID = RopPackage, (w = 10, l = 12, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 6, 0], Inside Truck: True),
+Value = 73, Weight = 50, IsFragile = True, ETA (day) = 3)
+, 
+Package (ID = DwcPackage, (w = 2, l = 15, h = 5), (X: w, Y: l, Z: h, Coordinates = [4, 4, 5], Inside Truck: False),
+Value = 2, Weight = 2, IsFragile = False, ETA (day) = 5)
+, 
+Package (ID = TjloPackage, (w = 7, l = 9, h = 3), (X: w, Y: l, Z: h, Coordinates = [1, 6, 10], Inside Truck: False),
+Value = 7, Weight = 67, IsFragile = False, ETA (day) = 5)
+]
+Iterasi 1
+  - Operasi    : {'type': 'trade', 'package1': 'RopPackage', 'package2': 'TjloPackage'}
+  - Value Lama : 138 -> Value Baru: 155
+Hasil Akhir=
+Jumlah Populasi: 4
+Jumlah Iterasi (Langkah): 1
+State Value Akhir: 155
+Detail Operasi Terbaik: [{'type': 'trade', 'package1': 'RopPackage', 'package2': 'TjloPackage'}]
+Detail State Akhir: [
+Package (ID = DqatPackage, (w = 7, l = 4, h = 4), (X: w, Y: l, Z: h, Coordinates = [3, 0, 0], Inside Truck: True),
+Value = 4, Weight = 88, IsFragile = False, ETA (day) = 4)
+, 
+Package (ID = RopPackage, (w = 7, l = 9, h = 3), (X: w, Y: l, Z: h, Coordinates = [1, 6, 10], Inside Truck: False),
+Value = 73, Weight = 50, IsFragile = True, ETA (day) = 3)
+, 
+Package (ID = DwcPackage, (w = 2, l = 15, h = 5), (X: w, Y: l, Z: h, Coordinates = [4, 4, 5], Inside Truck: False),
+Value = 2, Weight = 2, IsFragile = False, ETA (day) = 5)
+, 
+Package (ID = TjloPackage, (w = 10, l = 12, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 6, 0], Inside Truck: True),
+Value = 7, Weight = 67, IsFragile = False, ETA (day) = 5)
+]
+
+
+
+2
+State Awal=
+Jumlah Populasi (Paket): 4
+State Value Awal: 101
+Detail State Awal: [
+Package (ID = JssdPackage, (w = 9, l = 3, h = 4), (X: w, Y: l, Z: h, Coordinates = [0, 6, 0], Inside Truck: True),
+Value = 44, Weight = 47, IsFragile = False, ETA (day) = 3)
+, 
+Package (ID = IcmnPackage, (w = 8, l = 12, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 0, 4], Inside Truck: False),
+Value = 51, Weight = 87, IsFragile = False, ETA (day) = 4)
+, 
+Package (ID = MurtPackage, (w = 1, l = 2, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 0, 9], Inside Truck: False),
+Value = 14, Weight = 23, IsFragile = False, ETA (day) = 5)
+, 
+Package (ID = VarsPackage, (w = 4, l = 4, h = 1), (X: w, Y: l, Z: h, Coordinates = [1, 15, 0], Inside Truck: True),
+Value = 91, Weight = 54, IsFragile = False, ETA (day) = 2)
+]
+Iterasi 1
+  - Operasi    : {'type': 'trade', 'package1': 'JssdPackage', 'package2': 'IcmnPackage'}
+  - Value Lama : 101 -> Value Baru: 141
+Iterasi 2
+  - Operasi    : {'type': 'relocate', 'package': 'MurtPackage', 'from': [0, 0, 9], 'to': [0, 12, 0]}
+  - Value Lama : 141 -> Value Baru: 164
+Iterasi 3
+  - Operasi    : {'type': 'trade', 'package1': 'JssdPackage', 'package2': 'MurtPackage'}
+  - Value Lama : 164 -> Value Baru: 188
+Hasil Akhir=
+Jumlah Populasi: 4
+Jumlah Iterasi (Langkah): 3
+State Value Akhir: 188
+Detail Operasi Terbaik: [{'type': 'trade', 'package1': 'JssdPackage', 'package2': 'IcmnPackage'}, {'type': 'relocate', 'package': 'MurtPackage', 'from': [0, 0, 9], 'to': [0, 12, 0]}, {'type': 'trade', 'package1': 'JssdPackage', 'package2': 'MurtPackage'}]
+Detail State Akhir: [
+Package (ID = JssdPackage, (w = 1, l = 2, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 12, 0], Inside Truck: True),
+Value = 44, Weight = 47, IsFragile = False, ETA (day) = 3)
+, 
+Package (ID = IcmnPackage, (w = 9, l = 3, h = 4), (X: w, Y: l, Z: h, Coordinates = [0, 6, 0], Inside Truck: True),
+Value = 51, Weight = 87, IsFragile = False, ETA (day) = 4)
+, 
+Package (ID = MurtPackage, (w = 8, l = 12, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 0, 4], Inside Truck: False),
+Value = 14, Weight = 23, IsFragile = False, ETA (day) = 5)
+, 
+Package (ID = VarsPackage, (w = 4, l = 4, h = 1), (X: w, Y: l, Z: h, Coordinates = [1, 15, 0], Inside Truck: True),
+Value = 91, Weight = 54, IsFragile = False, ETA (day) = 2)
+]
+
+
+
+3
+State Awal=
+Jumlah Populasi (Paket): 4
+State Value Awal: 134
+Detail State Awal: [
+Package (ID = MtmgPackage, (w = 3, l = 6, h = 5), (X: w, Y: l, Z: h, Coordinates = [1, 12, 0], Inside Truck: True),
+Value = 76, Weight = 54, IsFragile = False, ETA (day) = 1)
+, 
+Package (ID = ScacPackage, (w = 9, l = 3, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 6, 0], Inside Truck: True),
+Value = 78, Weight = 80, IsFragile = False, ETA (day) = 0)
+, 
+Package (ID = JsrPackage, (w = 8, l = 7, h = 2), (X: w, Y: l, Z: h, Coordinates = [0, 0, 5], Inside Truck: False),
+Value = 94, Weight = 98, IsFragile = False, ETA (day) = 0)
+, 
+Package (ID = PisPackage, (w = 9, l = 19, h = 4), (X: w, Y: l, Z: h, Coordinates = [0, 0, 7], Inside Truck: False),
+Value = 16, Weight = 23, IsFragile = True, ETA (day) = 3)
+]
+Iterasi 1
+  - Operasi    : {'type': 'trade', 'package1': 'MtmgPackage', 'package2': 'JsrPackage'}
+  - Value Lama : 134 -> Value Baru: 178
+Hasil Akhir=
+Jumlah Populasi: 4
+Jumlah Iterasi (Langkah): 1
+State Value Akhir: 178
+Detail Operasi Terbaik: [{'type': 'trade', 'package1': 'MtmgPackage', 'package2': 'JsrPackage'}]
+Detail State Akhir: [
+Package (ID = MtmgPackage, (w = 8, l = 7, h = 2), (X: w, Y: l, Z: h, Coordinates = [0, 0, 5], Inside Truck: False),
+Value = 76, Weight = 54, IsFragile = False, ETA (day) = 1)
+, 
+Package (ID = ScacPackage, (w = 9, l = 3, h = 5), (X: w, Y: l, Z: h, Coordinates = [0, 6, 0], Inside Truck: True),
+Value = 78, Weight = 80, IsFragile = False, ETA (day) = 0)
+, 
+Package (ID = JsrPackage, (w = 3, l = 6, h = 5), (X: w, Y: l, Z: h, Coordinates = [1, 12, 0], Inside Truck: True),
+Value = 94, Weight = 98, IsFragile = False, ETA (day) = 0)
+, 
+Package (ID = PisPackage, (w = 9, l = 19, h = 4), (X: w, Y: l, Z: h, Coordinates = [0, 0, 7], Inside Truck: False),
+Value = 16, Weight = 23, IsFragile = True, ETA (day) = 3)
+]
+
+SA
+No
+Populasi (N)
+Alpha
+Run Ke-
+Hasil Eksperimen
+SS / Plot
+1
+50
+0.99 
+1
+Parameter            : T0=50.0, alpha=0.99, T_min=0.001, stuck_window=20, run=1
+Banyak Iterasi       : 1077
+Durasi Eksekusi      : 0.1567 detik
+State Awal           : ['OubPackage', 'LtalPackage', 'VoqePackage']
+State Akhir          : ['OubPackage', 'LtalPackage', 'VoqePackage']
+Objective Awal       : 192
+Objective Akhir      : 192
+Batas atas objective : 221   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+
+2
+50
+0.99 
+2
+Parameter            : T0=50.0, alpha=0.99, T_min=0.001, stuck_window=20, run=2
+Banyak Iterasi       : 1077
+Durasi Eksekusi      : 0.1610 detik
+State Awal           : ['CjePackage']
+State Akhir          : ['CjePackage', 'XnogPackage']
+Objective Awal       : 27
+Objective Akhir      : 49
+Batas atas objective : 73   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+3
+50
+0.99
+3
+Parameter            : T0=50.0, alpha=0.99, T_min=0.001, stuck_window=20, run=3
+Banyak Iterasi       : 1077
+Durasi Eksekusi      : 0.1507 detik
+State Awal           : ['ZmvPackage']
+State Akhir          : ['IbxPackage', 'OxhgPackage']
+Objective Awal       : 0
+Objective Akhir      : 107
+Batas atas objective : 213   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+
+4
+50
+0.995 
+1
+Parameter            : T0=50.0, alpha=0.995, T_min=0.001, stuck_window=20, run=1
+Banyak Iterasi       : 2159
+Durasi Eksekusi      : 0.3166 detik
+State Awal           : ['OubPackage', 'LtalPackage', 'VoqePackage']
+State Akhir          : ['OubPackage', 'LtalPackage', 'VoqePackage']
+Objective Awal       : 192
+Objective Akhir      : 192
+Batas atas objective : 221   (total value semua paket)
+Frekuensi stuck      : 1
+Solusi valid         : True
+
+
+
+
+
+
+5
+50
+0.995
+2
+Parameter            : T0=50.0, alpha=0.995, T_min=0.001, stuck_window=20, run=2
+Banyak Iterasi       : 2159
+Durasi Eksekusi      : 0.3358 detik
+State Awal           : ['CjePackage']
+State Akhir          : ['CjePackage', 'XnogPackage']
+Objective Awal       : 27
+Objective Akhir      : 49
+Batas atas objective : 73   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+
+
+6
+50
+0.995
+3
+Parameter            : T0=50.0, alpha=0.995, T_min=0.001, stuck_window=20, run=3
+Banyak Iterasi       : 2159
+Durasi Eksekusi      : 0.3251 detik
+State Awal           : ['ZmvPackage']
+State Akhir          : ['PdxPackage', 'ZmvPackage', 'IbxPackage', 'OxhgPackage']
+Objective Awal       : 0
+Objective Akhir      : 213
+Batas atas objective : 213   (total value semua paket)
+Frekuensi stuck      : 20
+Solusi valid         : True
+
+
+
+
+
+
+7
+50
+0.999 
+1
+Parameter            : T0=50.0, alpha=0.999, T_min=0.001, stuck_window=20, run=1
+Banyak Iterasi       : 10815
+Durasi Eksekusi      : 1.5446 detik
+State Awal           : ['OubPackage', 'LtalPackage', 'VoqePackage']
+State Akhir          : ['OubPackage', 'LtalPackage', 'SntyPackage', 'VoqePackage']
+Objective Awal       : 192
+Objective Akhir      : 221
+Batas atas objective : 221   (total value semua paket)
+Frekuensi stuck      : 119
+Solusi valid         : True
+
+
+
+
+8
+50
+0.999 
+2
+Parameter            : T0=50.0, alpha=0.999, T_min=0.001, stuck_window=20, run=2
+Banyak Iterasi       : 10815
+Durasi Eksekusi      : 1.5495 detik
+State Awal           : ['CjePackage']
+State Akhir          : ['CjePackage', 'XnogPackage', 'TxtuPackage']
+Objective Awal       : 27
+Objective Akhir      : 69
+Batas atas objective : 73   (total value semua paket)
+Frekuensi stuck      : 8
+Solusi valid         : True
+
+
+
+
+
+
+9
+50
+0.999 
+3
+Parameter            : T0=50.0, alpha=0.999, T_min=0.001, stuck_window=20, run=3
+Banyak Iterasi       : 10815
+Durasi Eksekusi      : 1.4815 detik
+State Awal           : ['ZmvPackage']
+State Akhir          : ['PdxPackage', 'ZmvPackage', 'IbxPackage', 'OxhgPackage']
+Objective Awal       : 0
+Objective Akhir      : 213
+Batas atas objective : 213   (total value semua paket)
+Frekuensi stuck      : 147
+Solusi valid         : True
+
+
+
+
+Set 2: Variasi Jumlah Populasi (alpha Kontrol/Tetap = 0.995)
+No
+Populasi
+alpha
+Run Ke-
+Hasil Eksperimen
+SS / Plot
+10
+10 
+0.995 
+1
+Parameter            : T0=10, alpha=0.995, T_min=0.001, stuck_window=20, run=1
+Banyak Iterasi       : 1838
+Durasi Eksekusi      : 0.2510 detik
+State Awal           : ['OubPackage', 'LtalPackage', 'VoqePackage']
+State Akhir          : ['OubPackage', 'LtalPackage', 'VoqePackage']
+Objective Awal       : 192
+Objective Akhir      : 192
+Batas atas objective : 221   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+
+
+11
+10 
+0.995 
+2
+Parameter            : T0=10, alpha=0.995, T_min=0.001, stuck_window=20, run=2
+Banyak Iterasi       : 1838
+Durasi Eksekusi      : 0.2567 detik
+State Awal           : ['CjePackage']
+State Akhir          : ['CjePackage', 'XnogPackage']
+Objective Awal       : 27
+Objective Akhir      : 49
+Batas atas objective : 73   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+12
+10 
+0.995 
+3
+Parameter            : T0=10, alpha=0.995, T_min=0.001, stuck_window=20, run=3
+Banyak Iterasi       : 1838
+Durasi Eksekusi      : 0.2526 detik
+State Awal           : ['ZmvPackage']
+State Akhir          : ['PdxPackage', 'IbxPackage']
+Objective Awal       : 0
+Objective Akhir      : 175
+Batas atas objective : 213   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+13
+200 
+0.995 
+1
+Parameter            : T0=200, alpha=0.995, T_min=0.001, stuck_window=20, run=1
+Banyak Iterasi       : 2436
+Durasi Eksekusi      : 0.3538 detik
+State Awal           : ['OubPackage', 'LtalPackage', 'VoqePackage']
+State Akhir          : ['OubPackage', 'LtalPackage', 'VoqePackage']
+Objective Awal       : 192
+Objective Akhir      : 192
+Batas atas objective : 221   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+14
+200 
+0.995 
+2
+Parameter            : T0=200, alpha=0.995, T_min=0.001, stuck_window=20, run=2
+Banyak Iterasi       : 2436
+Durasi Eksekusi      : 0.3650 detik
+State Awal           : ['CjePackage']
+State Akhir          : ['CjePackage', 'XnogPackage']
+Objective Awal       : 27
+Objective Akhir      : 49
+Batas atas objective : 73   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+
+
+
+15
+200 
+0.995 
+3
+Parameter            : T0=200, alpha=0.995, T_min=0.001, stuck_window=20, run=3
+Banyak Iterasi       : 2436
+Durasi Eksekusi      : 0.3494 detik
+State Awal           : ['ZmvPackage']
+State Akhir          : ['PdxPackage', 'IbxPackage']
+Objective Awal       : 0
+Objective Akhir      : 175
+Batas atas objective : 213   (total value semua paket)
+Frekuensi stuck      : 0
+Solusi valid         : True
+
+
+GA: 
+No
+Populasi (N)
+Iterasi (T)
+Run Ke-
+Hasil Eksperimen
+SS / Plot
+1
+30
+10
+1
+Jumlah Populasi    : 30
+Banyak Iterasi   : 10
+Durasi Eksekusi     : 0.2216 detik
+Solusi Awal (State Awal) : ['WvqdPackage']
+Solusi Terbaik Akhir (State Akhir) : ['AlxvPackage']
+Nilai Objective Function Akhir    : 99 / 10
+Nilai Objective Function Rata-Rata    : 87.00
+
+
+
+
+2
+30
+10
+2
+Jumlah Populasi    : 30
+Banyak Iterasi   : 10
+Durasi Eksekusi      : 0.2899 detik
+State Awal : ['WcxvPackage', 'YptvPackage']
+State Akhir : ['WcxvPackage', 'YptvPackage']
+Nilai Objective Function Akhir    : 159 / 10
+Nilai Objective Function Rata-Rata    : 78.30
+
+
+
+
+3
+30
+10
+3
+Jumlah Populasi    : 30
+Banyak Iterasi   : 10
+Durasi Eksekusi      : 0.2015 detik
+State Awal : ['TiyPackage']
+State Akhir : ['FeniPackage', 'TiyPackage']
+Nilai Objective Function Akhir    : 164 / 10
+Nilai Objective Function Rata-Rata    : 92.70
+
+
+
+
+4
+30
+30
+1
+Jumlah Populasi    : 30
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.5699 detik
+State Awal : ['VakPackage']
+State Akhir : ['AbgsPackage']
+Nilai Objective Function Akhir    : 67 / 10
+Nilai Objective Function Rata-Rata    : 44.37
+
+
+
+
+
+5
+30
+30
+2
+Jumlah Populasi    : 30
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.5219 detik
+State Awal : ['AadPackage', 'SfaePackage']
+State Akhir : ['AadPackage', 'SfaePackage']
+Nilai Objective Function Akhir    : 166 / 10
+Nilai Objective Function Rata-Rata    : 103.43
+
+
+
+
+
+6
+30
+30
+3
+Jumlah Populasi    : 30
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.6065 detik
+State Awal : ['OzxPackage']
+State Akhir : ['BzgPackage', 'OzxPackage']
+Nilai Objective Function Akhir    : 104 / 10
+Nilai Objective Function Rata-Rata    : 61.33
+
+
+
+
+
+7
+30
+60
+1
+Jumlah Populasi    : 30
+Banyak Iterasi   : 60
+Durasi Eksekusi      : 1.0574 detik
+State Awal : ['OjkPackage']
+State Akhir : ['OjkPackage', 'BjjmPackage']
+Nilai Objective Function Akhir    : 140 / 10
+Nilai Objective Function Rata-Rata    : 84.73
+
+
+
+
+
+8
+30
+60
+2
+Jumlah Populasi    : 30
+Banyak Iterasi   : 60
+Durasi Eksekusi      : 1.0002 detik
+State Awal : ['DhfrPackage']
+State Akhir : ['PbydPackage']
+Nilai Objective Function Akhir    : 83 / 10
+Nilai Objective Function Rata-Rata    : 75.50
+
+
+
+
+
+9
+30
+60
+3
+Jumlah Populasi    : 30
+Banyak Iterasi   : 60
+Durasi Eksekusi      : 0.9910 detik
+State Awal : ['MoyPackage', 'TprPackage']
+State Akhir : ['MoyPackage', 'TprPackage', 'YezhPackage']
+Nilai Objective Function Akhir    : 78 / 10
+Nilai Objective Function Rata-Rata    : 34.23
+
+
+
+
+
+Set 2: Variasi Jumlah Populasi (Iterasi Kontrol/Tetap = 30)
+No
+Populasi
+Iterasi
+Run Ke-
+Hasil Eksperimen
+SS / Plot
+10
+10
+30
+1
+Jumlah Populasi    : 10
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.3322 detik
+State Awal : ['CwbPackage', 'EepPackage']
+State Akhir :J ['CwbPackage']
+Nilai Objective Function Akhir    : 88 / 10
+Nilai Objective Function Rata-Rata    : 70.40
+
+
+
+
+
+11
+10
+30
+2
+Jumlah Populasi    : 10
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.2091 detik
+State Awal : []
+State Akhir : ['AnjPackage', 'BubpPackage']
+Nilai Objective Function Akhir    : 135 / 10
+Nilai Objective Function Rata-Rata    : 73.20
+
+
+
+
+12
+10
+30
+3
+Jumlah Populasi    : 10
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.4606 detik
+State Awal : []
+State Akhir : ['VcpyPackage']
+Nilai Objective Function Akhir    : 40 / 10
+Nilai Objective Function Rata-Rata    : 38.30
+
+
+
+
+
+13
+30
+30
+1
+Jumlah Populasi    : 30
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.4730 detik
+State Awal : ['BsivPackage']
+State Akhir : ['BsivPackage']
+Nilai Objective Function Akhir    : 82 / 10
+Nilai Objective Function Rata-Rata    : 77.07
+
+
+
+
+
+14
+30
+30
+2
+Jumlah Populasi    : 30
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.5086 detik
+State Awal : ['IrgpPackage']
+State Akhir : ['IrgpPackage']
+Nilai Objective Function Akhir    : 98 / 10
+Nilai Objective Function Rata-Rata    : 82.83
+
+
+
+
+15
+30
+30
+3
+Jumlah Populasi    : 30
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 0.7541 detik
+State Awal : ['YmnPackage']
+State Akhir : ['WgvrPackage']
+Nilai Objective Function Akhir    : 80 / 10
+Nilai Objective Function Rata-Rata    : 71.10
+
+
+
+
+
+16
+60
+30
+1
+Jumlah Populasi    : 60
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 1.4580 detik
+State Awal : ['IuaPackage']
+State Akhir : ['NwhzPackage', 'IuaPackage', 'ZzgkPackage']
+Nilai Objective Function Akhir    : 195 / 10
+Nilai Objective Function Rata-Rata    : 101.28
+
+
+
+
+17
+60
+30
+2
+Jumlah Populasi    : 60
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 1.0656 detik
+State Awal : ['QldgPackage', 'XwxPackage']
+State Akhir : ['MxraPackage', 'XwxPackage']
+Nilai Objective Function Akhir    : 115 / 10
+Nilai Objective Function Rata-Rata    : 61.88
+
+
+
+
+
+18
+60
+30
+3
+Jumlah Populasi    : 60
+Banyak Iterasi   : 30
+Durasi Eksekusi      : 1.0129 detik
+State Awal : ['XawPackage', 'NidPackage']
+State Akhir : ['YiddPackage', 'XawPackage']
+Nilai Objective Function Akhir    : 189 / 10
+Nilai Objective Function Rata-Rata    : 115.60
+
+
+
+
+
+
+
+
+
+
+
+
+
+
