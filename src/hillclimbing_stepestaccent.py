@@ -2,11 +2,13 @@
 import random
 import time
 from copy import deepcopy
+import matplotlib.pyplot as plt
 from objects import (initialize, isOccupied, updateInside, fitting, truck)
 from visualization import visualize
 
 
-# Objects.py helper
+# Objects.py additions
+
 def stateValue(ListofObjects):
     totalWeight = 0
     for obj in ListofObjects:
@@ -75,7 +77,8 @@ def safe_relocate(obj, setofCoordinates, listofObjects):
     return True
 
 
-# Generate neighbors 
+# Neighbor generator
+
 def rotateNeighbors(ListofObjects):
     neighbors = []
     values = []
@@ -151,6 +154,24 @@ def neighborList(listofObjects, i):
     return valid_neighbor, valid_values, valid_operations
 
 
+# Plot functions
+
+def plot_objective_function(max_history, avg_history):
+    plt.figure(figsize=(8, 5))
+    iterations = range(len(max_history))
+
+    plt.plot(iterations, max_history, label="Maksimum Objective Value", color="red", linewidth=2)
+    plt.plot(iterations, avg_history, label="Rata-rata Objective Value", color="blue", linestyle="--", linewidth=2)
+
+    plt.title("Perkembangan Objective Function vs Iterasi")
+    plt.xlabel("Iterasi ke-")
+    plt.ylabel("Nilai Objective Function (Total Weight)")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
 # Algorithm
 
 def hclimbing_stepestaccent(ListofObjects, i):
@@ -158,6 +179,10 @@ def hclimbing_stepestaccent(ListofObjects, i):
     current_value = stateValue(current_state)
 
     langkah = 0
+    history_operations = []
+
+    max_value_history = [current_value]
+    avg_value_history = [current_value]
 
     while True:
         choose_neighbor, values, operations = neighborList(current_state, i)
@@ -169,49 +194,75 @@ def hclimbing_stepestaccent(ListofObjects, i):
         indexMax = values.index(best_value)
 
         best_neighbor = choose_neighbor[indexMax]
+        best_op = operations[indexMax]
 
         if best_value > current_value:
+            langkah += 1
+            print(f"Iterasi {langkah}")
+            print(f"  - Operasi    : {best_op}")
+            print(f"  - Value Lama : {current_value} -> Value Baru: {best_value}")
+
             current_state = best_neighbor
             current_value = best_value
-            langkah += 1
+            history_operations.append(best_op)
+
+            max_val = max(values)
+            avg_val = sum(values) / len(values)
+            max_value_history.append(max_val)
+            avg_value_history.append(avg_val)
         else:
             break
 
-    return current_state, current_value, langkah
+    return current_state, current_value, langkah, history_operations, max_value_history, avg_value_history
 
 
 def initializeHC():
     t = initialize()
     listofObjects = t[0]
 
-    # State Awal dan State Value Awal
+    visualize(t[0])
+
+    population_size = len(listofObjects)
+
     initialState = deepcopy(listofObjects)
     initialValue = stateValue(listofObjects)
 
-    print("\n")
-    print("STATE AWAL")
+    print("State Awal=")
+    print("Jumlah Populasi (Paket):", population_size)
     print("State Value Awal:", initialValue)
     print("Detail State Awal:", initialState)
-    print("\n")
 
     bestState = deepcopy(listofObjects)
     bestValue = initialValue
     bestSteps = 0
+    bestOperations = []
+    best_max_history = [initialValue]
+    best_avg_history = [initialValue]
 
-    for i in range(len(listofObjects)):
-        resultState, resultValue, steps = hclimbing_stepestaccent(listofObjects, i)
+    for i in range(population_size):
+        resultState, resultValue, steps, ops, max_hist, avg_hist = hclimbing_stepestaccent(listofObjects, i)
 
         if resultValue > bestValue:
             bestState = deepcopy(resultState)
             bestValue = resultValue
             bestSteps = steps
+            bestOperations = ops
+            best_max_history = max_hist
+            best_avg_history = avg_hist
 
-    print("HASIL AKHIR")
-    print("Jumlah Iterasi:", bestSteps)
+    print("Hasil Akhir=")
+    print("Jumlah Populasi:", population_size)
+    print("Jumlah Iterasi (Langkah):", bestSteps)
     print("State Value Akhir:", bestValue)
+    print("Detail Operasi Terbaik:", bestOperations)
     print("Detail State Akhir:", bestState)
 
-    visualize(bestState)
+    plot_objective_function(best_max_history, best_avg_history)
+
+    if bestSteps == 0:
+        visualize(t[0])
+    else:
+        visualize(bestState)
 
     return bestState, bestValue, bestSteps, initialState, initialValue
 
@@ -222,7 +273,3 @@ def testingHC():
 
 if __name__ == "__main__":
     testingHC()
-
-
-
-
